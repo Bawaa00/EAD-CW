@@ -27,14 +27,21 @@ public class LoginForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField2 = new javax.swing.JTextField();
+        txtPass = new javax.swing.JPasswordField();
+        txtUname = new javax.swing.JTextField();
+        btnReg = new javax.swing.JButton();
+        btnLog = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon("E:\\Downloads\\starbucks_sign_in_button_animated_0.gif")); // NOI18N
+        jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -48,18 +55,43 @@ public class LoginForm extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(0, 0, 204));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 302, 300, 10));
 
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(153, 153, 255));
-        jPasswordField1.setText("jPasswordField1");
-        jPasswordField1.setBorder(null);
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 300, 20));
+        txtPass.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtPass.setForeground(new java.awt.Color(153, 153, 255));
+        txtPass.setText("jPasswordField1");
+        txtPass.setBorder(null);
+        txtPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPassMouseClicked(evt);
+            }
+        });
+        jPanel1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 300, 30));
 
-        jTextField2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(153, 153, 255));
-        jTextField2.setText("Enter Username");
-        jTextField2.setToolTipText("");
-        jTextField2.setBorder(null);
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 300, 30));
+        txtUname.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtUname.setForeground(new java.awt.Color(153, 153, 255));
+        txtUname.setText("Enter Username");
+        txtUname.setToolTipText("");
+        txtUname.setBorder(null);
+        txtUname.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtUnameMouseClicked(evt);
+            }
+        });
+        jPanel1.add(txtUname, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 300, 30));
+
+        btnReg.setBackground(new java.awt.Color(102, 102, 255));
+        btnReg.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        btnReg.setForeground(new java.awt.Color(255, 255, 255));
+        btnReg.setText("SIGNUP");
+        btnReg.setToolTipText("");
+        btnReg.setActionCommand("REGISTER");
+        jPanel1.add(btnReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, 100, 50));
+
+        btnLog.setBackground(new java.awt.Color(102, 102, 255));
+        btnLog.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        btnLog.setForeground(new java.awt.Color(255, 255, 255));
+        btnLog.setText("LOGIN");
+        btnLog.setToolTipText("");
+        jPanel1.add(btnLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 100, 50));
 
         jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 255));
@@ -81,6 +113,14 @@ public class LoginForm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtUnameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUnameMouseClicked
+       txtUname.setText("");
+    }//GEN-LAST:event_txtUnameMouseClicked
+
+    private void txtPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPassMouseClicked
+        txtPass.setText("");
+    }//GEN-LAST:event_txtPassMouseClicked
 
     /**
      * @param args the command line arguments
@@ -118,13 +158,16 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLog;
+    private javax.swing.JButton btnReg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField txtPass;
+    private javax.swing.JTextField txtUname;
     // End of variables declaration//GEN-END:variables
 }
