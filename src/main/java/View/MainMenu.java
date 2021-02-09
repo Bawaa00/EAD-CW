@@ -28,27 +28,127 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         header = new javax.swing.JPanel();
+        optionIcons = new javax.swing.JPanel();
+        buttonClose = new javax.swing.JPanel();
+        btnClose = new javax.swing.JLabel();
         menu = new javax.swing.JPanel();
         meunIcons = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        menuSlide = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        btnViewV = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnHome = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        btnAddV = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        btnSearchV = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnBookV = new javax.swing.JLabel();
+        dash = new javax.swing.JPanel();
+        dashTabPanel = new javax.swing.JTabbedPane();
+        tabHome = new javax.swing.JPanel();
+        tabAddVehicle = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jTextField2 = new javax.swing.JTextField();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        tabViewVehicle = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        tabSearchVehicle = new javax.swing.JPanel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jTextField6 = new javax.swing.JTextField();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        tabBookVehicle = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jComboBox8 = new javax.swing.JComboBox<>();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 600));
 
         header.setBackground(new java.awt.Color(25, 36, 40));
         header.setPreferredSize(new java.awt.Dimension(900, 50));
+        header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
-        header.setLayout(headerLayout);
-        headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1085, Short.MAX_VALUE)
+        optionIcons.setPreferredSize(new java.awt.Dimension(150, 50));
+
+        buttonClose.setLayout(new java.awt.BorderLayout());
+
+        btnClose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnClose.setText("Close");
+        buttonClose.add(btnClose, java.awt.BorderLayout.CENTER);
+
+        javax.swing.GroupLayout optionIconsLayout = new javax.swing.GroupLayout(optionIcons);
+        optionIcons.setLayout(optionIconsLayout);
+        optionIconsLayout.setHorizontalGroup(
+            optionIconsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, optionIconsLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(buttonClose, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+        optionIconsLayout.setVerticalGroup(
+            optionIconsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(buttonClose, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
+
+        header.add(optionIcons, new org.netbeans.lib.awtextra.AbsoluteConstraints(1035, 0, 50, -1));
 
         getContentPane().add(header, java.awt.BorderLayout.PAGE_START);
 
@@ -58,53 +158,590 @@ public class MainMenu extends javax.swing.JFrame {
 
         meunIcons.setBackground(new java.awt.Color(25, 36, 40));
         meunIcons.setPreferredSize(new java.awt.Dimension(50, 625));
+        meunIcons.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout meunIconsLayout = new javax.swing.GroupLayout(meunIcons);
-        meunIcons.setLayout(meunIconsLayout);
-        meunIconsLayout.setHorizontalGroup(
-            meunIconsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-        meunIconsLayout.setVerticalGroup(
-            meunIconsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
-        );
+        jPanel6.setLayout(new java.awt.BorderLayout());
+
+        jLabel10.setText("jLabel10");
+        jPanel6.add(jLabel10, java.awt.BorderLayout.CENTER);
+
+        meunIcons.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 50, 50));
+
+        jPanel7.setLayout(new java.awt.BorderLayout());
+
+        jLabel6.setText("jLabel6");
+        jPanel7.add(jLabel6, java.awt.BorderLayout.CENTER);
+
+        meunIcons.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        jLabel7.setText("jLabel7");
+        jPanel8.add(jLabel7, java.awt.BorderLayout.CENTER);
+
+        meunIcons.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 50, 50));
+
+        jPanel9.setLayout(new java.awt.BorderLayout());
+
+        jLabel8.setText("jLabel8");
+        jPanel9.add(jLabel8, java.awt.BorderLayout.CENTER);
+
+        meunIcons.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 50, 50));
+
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        jLabel9.setText("jLabel9");
+        jPanel10.add(jLabel9, java.awt.BorderLayout.CENTER);
+
+        meunIcons.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 50, 50));
 
         menu.add(meunIcons, java.awt.BorderLayout.LINE_START);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
-        );
+        menuSlide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        menu.add(jPanel2, java.awt.BorderLayout.CENTER);
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        btnViewV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnViewV.setText("VIEW VEHICLE");
+        btnViewV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewVMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnViewV, java.awt.BorderLayout.CENTER);
+
+        menuSlide.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 220, 50));
+
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        btnHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnHome.setText("HOME");
+        btnHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnHomeMouseClicked(evt);
+            }
+        });
+        jPanel2.add(btnHome, java.awt.BorderLayout.CENTER);
+
+        menuSlide.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 50));
+
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        btnAddV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAddV.setText("ADD VEHICLE");
+        btnAddV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddVMouseClicked(evt);
+            }
+        });
+        jPanel3.add(btnAddV, java.awt.BorderLayout.CENTER);
+
+        menuSlide.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 220, 50));
+
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        btnSearchV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSearchV.setText("SEARCH VEHICLE");
+        btnSearchV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSearchVMouseClicked(evt);
+            }
+        });
+        jPanel4.add(btnSearchV, java.awt.BorderLayout.CENTER);
+
+        menuSlide.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 220, 50));
+
+        jPanel5.setLayout(new java.awt.BorderLayout());
+
+        btnBookV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnBookV.setText("BOOK VEHICLE");
+        btnBookV.setToolTipText("");
+        btnBookV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBookVMouseClicked(evt);
+            }
+        });
+        jPanel5.add(btnBookV, java.awt.BorderLayout.CENTER);
+
+        menuSlide.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 220, 50));
+
+        menu.add(menuSlide, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(menu, java.awt.BorderLayout.LINE_START);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        dash.setBackground(new java.awt.Color(255, 255, 255));
+        dash.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 815, Short.MAX_VALUE)
+        javax.swing.GroupLayout tabHomeLayout = new javax.swing.GroupLayout(tabHome);
+        tabHome.setLayout(tabHomeLayout);
+        tabHomeLayout.setHorizontalGroup(
+            tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 864, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+        tabHomeLayout.setVerticalGroup(
+            tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 676, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        dashTabPanel.addTab("tab1", tabHome);
+
+        jLabel1.setText("License Plate");
+
+        jLabel2.setText("Year");
+
+        jLabel3.setText("Make");
+
+        jLabel4.setText("Model");
+
+        jLabel5.setText("Category");
+
+        jLabel11.setText("Cost per Month");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTextField2.setToolTipText("");
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTextField3.setToolTipText("");
+
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Photo");
+        jLabel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jButton2.setText("Browse");
+
+        jButton6.setText("Save");
+
+        jButton7.setText("Clear");
+
+        javax.swing.GroupLayout tabAddVehicleLayout = new javax.swing.GroupLayout(tabAddVehicle);
+        tabAddVehicle.setLayout(tabAddVehicleLayout);
+        tabAddVehicleLayout.setHorizontalGroup(
+            tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabAddVehicleLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel11))
+                .addGap(55, 55, 55)
+                .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField3)
+                    .addComponent(jTextField1)
+                    .addComponent(jComboBox2, 0, 158, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField2)
+                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabAddVehicleLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jButton6)
+                .addGap(48, 48, 48)
+                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(165, 165, 165))
+        );
+        tabAddVehicleLayout.setVerticalGroup(
+            tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabAddVehicleLayout.createSequentialGroup()
+                .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabAddVehicleLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabAddVehicleLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))))
+                .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabAddVehicleLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton2))
+                    .addGroup(tabAddVehicleLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton6)
+                            .addComponent(jButton7))))
+                .addContainerGap(269, Short.MAX_VALUE))
+        );
+
+        dashTabPanel.addTab("tab2", tabAddVehicle);
+
+        jButton1.setText("jButton1");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout tabViewVehicleLayout = new javax.swing.GroupLayout(tabViewVehicle);
+        tabViewVehicle.setLayout(tabViewVehicleLayout);
+        tabViewVehicleLayout.setHorizontalGroup(
+            tabViewVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabViewVehicleLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabViewVehicleLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(29, 29, 29))
+        );
+        tabViewVehicleLayout.setVerticalGroup(
+            tabViewVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabViewVehicleLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE))
+        );
+
+        dashTabPanel.addTab("tab3", tabViewVehicle);
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel13.setText("Make");
+
+        jTextField4.setToolTipText("");
+
+        jLabel14.setText("Model");
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Photo");
+        jLabel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel16.setText("Category");
+
+        jButton3.setText("Browse");
+
+        jLabel17.setText("Cost per Month");
+
+        jLabel18.setText("License Plate");
+
+        jLabel19.setText("Year");
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTextField6.setToolTipText("");
+
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton4.setText("Search");
+
+        jButton5.setText("Update");
+
+        javax.swing.GroupLayout tabSearchVehicleLayout = new javax.swing.GroupLayout(tabSearchVehicle);
+        tabSearchVehicle.setLayout(tabSearchVehicleLayout);
+        tabSearchVehicleLayout.setHorizontalGroup(
+            tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabSearchVehicleLayout.createSequentialGroup()
+                .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabSearchVehicleLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel18)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)))
+                    .addGroup(tabSearchVehicleLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jButton4)))
+                .addGap(40, 40, 40)
+                .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabSearchVehicleLayout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addGap(165, 165, 165))
+                    .addGroup(tabSearchVehicleLayout.createSequentialGroup()
+                        .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField4)
+                            .addComponent(jComboBox6, 0, 158, Short.MAX_VALUE)
+                            .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField6)
+                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+        tabSearchVehicleLayout.setVerticalGroup(
+            tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabSearchVehicleLayout.createSequentialGroup()
+                .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabSearchVehicleLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabSearchVehicleLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17))))
+                .addGap(28, 28, 28)
+                .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
+                .addContainerGap(277, Short.MAX_VALUE))
+        );
+
+        dashTabPanel.addTab("tab4", tabSearchVehicle);
+
+        jLabel20.setText("License Plate");
+
+        jLabel21.setText("Year");
+
+        jLabel22.setText("Make");
+
+        jLabel23.setText("Model");
+
+        jLabel24.setText("Customer Name");
+
+        jLabel25.setText("Address");
+
+        jLabel26.setText("Contact");
+
+        jLabel27.setText("Booking Date");
+
+        jLabel28.setText("No of Months");
+
+        jButton8.setText("Get Bill");
+
+        jButton9.setText("Book");
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTextField9.setToolTipText("");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        jTextField10.setToolTipText("");
+
+        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField12ActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("Customer");
+        jLabel29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jButton10.setText("Browse");
+
+        javax.swing.GroupLayout tabBookVehicleLayout = new javax.swing.GroupLayout(tabBookVehicle);
+        tabBookVehicle.setLayout(tabBookVehicleLayout);
+        tabBookVehicleLayout.setHorizontalGroup(
+            tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel20))
+                        .addGap(33, 33, 33)
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabBookVehicleLayout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabBookVehicleLayout.createSequentialGroup()
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel26))
+                        .addGap(70, 70, 70)
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton8)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                                    .addComponent(jTextField5))
+                                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                                        .addGap(74, 74, 74)
+                                        .addComponent(jLabel22)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel23)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabBookVehicleLayout.createSequentialGroup()
+                                        .addGap(65, 65, 65)
+                                        .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabBookVehicleLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton10)
+                        .addGap(138, 138, 138))))
+            .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                .addGap(237, 237, 237)
+                .addComponent(jButton9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        tabBookVehicleLayout.setVerticalGroup(
+            tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel23)
+                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel28))
+                                .addGap(45, 45, 45)
+                                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(49, 49, 49)
+                                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel25)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton10)))
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel26)))
+                .addGap(97, 97, 97)
+                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9)
+                    .addComponent(jButton8))
+                .addGap(143, 143, 143))
+        );
+
+        dashTabPanel.addTab("tab5", tabBookVehicle);
+
+        dash.add(dashTabPanel, java.awt.BorderLayout.PAGE_START);
+
+        getContentPane().add(dash, java.awt.BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseClicked
+        dashTabPanel.setSelectedIndex(0);
+    }//GEN-LAST:event_btnHomeMouseClicked
+
+    private void btnAddVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddVMouseClicked
+        dashTabPanel.setSelectedIndex(1);
+    }//GEN-LAST:event_btnAddVMouseClicked
+
+    private void btnViewVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewVMouseClicked
+        dashTabPanel.setSelectedIndex(2);
+    }//GEN-LAST:event_btnViewVMouseClicked
+
+    private void btnSearchVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchVMouseClicked
+        dashTabPanel.setSelectedIndex(3);
+    }//GEN-LAST:event_btnSearchVMouseClicked
+
+    private void btnBookVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBookVMouseClicked
+        dashTabPanel.setSelectedIndex(4);
+    }//GEN-LAST:event_btnBookVMouseClicked
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,10 +779,97 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnAddV;
+    private javax.swing.JLabel btnBookV;
+    private javax.swing.JLabel btnClose;
+    private javax.swing.JLabel btnHome;
+    private javax.swing.JLabel btnSearchV;
+    private javax.swing.JLabel btnViewV;
+    private javax.swing.JPanel buttonClose;
+    private javax.swing.JPanel dash;
+    private javax.swing.JTabbedPane dashTabPanel;
     private javax.swing.JPanel header;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel menu;
+    private javax.swing.JPanel menuSlide;
     private javax.swing.JPanel meunIcons;
+    private javax.swing.JPanel optionIcons;
+    private javax.swing.JPanel tabAddVehicle;
+    private javax.swing.JPanel tabBookVehicle;
+    private javax.swing.JPanel tabHome;
+    private javax.swing.JPanel tabSearchVehicle;
+    private javax.swing.JPanel tabViewVehicle;
     // End of variables declaration//GEN-END:variables
 }
