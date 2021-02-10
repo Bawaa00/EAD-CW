@@ -5,8 +5,9 @@
  */
 package View;
 
-import org.kordamp.ikonli.materialdesign.MaterialDesign;
-import org.kordamp.ikonli.swing.FontIcon;
+import Controller.SaveVehicle;
+import Model.Vehicle;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -72,16 +73,16 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        txtLplate = new javax.swing.JTextField();
+        cmbMake = new javax.swing.JComboBox<>();
+        cmbYear = new javax.swing.JComboBox<>();
+        txtModel = new javax.swing.JTextField();
+        cmbCategory = new javax.swing.JComboBox<>();
+        txtCostpm = new javax.swing.JTextField();
+        imgVehicle = new javax.swing.JLabel();
+        btnBrowse = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
         tabSearchVehicle = new javax.swing.JPanel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
@@ -123,6 +124,7 @@ public class MainMenu extends javax.swing.JFrame {
         jTextField12 = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1200, 800));
@@ -142,7 +144,6 @@ public class MainMenu extends javax.swing.JFrame {
         btnClose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnClose.setIcon(new javax.swing.ImageIcon("E:\\Downloads\\icons8-cancel-64.png")); // NOI18N
         btnClose.setToolTipText("");
-        btnClose.setPreferredSize(new java.awt.Dimension(64, 64));
         buttonClose.add(btnClose, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout optionIconsLayout = new javax.swing.GroupLayout(optionIcons);
@@ -234,7 +235,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         btnViewV.setBackground(new java.awt.Color(2, 127, 255));
-        btnViewV.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnViewV.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         btnViewV.setForeground(new java.awt.Color(255, 255, 255));
         btnViewV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnViewV.setText("VIEW VEHICLE");
@@ -251,7 +252,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.setLayout(new java.awt.BorderLayout());
 
         btnHome.setBackground(new java.awt.Color(2, 127, 255));
-        btnHome.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnHome.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         btnHome.setForeground(new java.awt.Color(255, 255, 255));
         btnHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnHome.setText("HOME");
@@ -268,7 +269,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel3.setLayout(new java.awt.BorderLayout());
 
         btnAddV.setBackground(new java.awt.Color(2, 127, 255));
-        btnAddV.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnAddV.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         btnAddV.setForeground(new java.awt.Color(255, 255, 255));
         btnAddV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnAddV.setText("ADD VEHICLE");
@@ -285,7 +286,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel4.setLayout(new java.awt.BorderLayout());
 
         btnSearchV.setBackground(new java.awt.Color(2, 127, 255));
-        btnSearchV.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnSearchV.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         btnSearchV.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnSearchV.setText("SEARCH VEHICLE");
@@ -302,7 +303,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel5.setLayout(new java.awt.BorderLayout());
 
         btnBookV.setBackground(new java.awt.Color(0, 48, 131));
-        btnBookV.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnBookV.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         btnBookV.setForeground(new java.awt.Color(255, 255, 255));
         btnBookV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnBookV.setText("BOOK VEHICLE");
@@ -324,27 +325,32 @@ public class MainMenu extends javax.swing.JFrame {
         dash.setLayout(new java.awt.BorderLayout());
 
         dashTabPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dashTabPanel.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
 
         tabHome.setBackground(new java.awt.Color(255, 255, 255));
         tabHome.setToolTipText("");
+        tabHome.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        tabHome.setInheritsPopupMenu(true);
 
         javax.swing.GroupLayout tabHomeLayout = new javax.swing.GroupLayout(tabHome);
         tabHome.setLayout(tabHomeLayout);
         tabHomeLayout.setHorizontalGroup(
             tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 879, Short.MAX_VALUE)
+            .addGap(0, 943, Short.MAX_VALUE)
         );
         tabHomeLayout.setVerticalGroup(
             tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 701, Short.MAX_VALUE)
+            .addGap(0, 904, Short.MAX_VALUE)
         );
 
-        dashTabPanel.addTab("tab1", tabHome);
+        dashTabPanel.addTab("HOME", tabHome);
 
         tabViewVehicle.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setText("jButton1");
+        jButton1.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jButton1.setText("VIEW ALL");
 
+        jTable1.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -362,13 +368,13 @@ public class MainMenu extends javax.swing.JFrame {
         tabViewVehicle.setLayout(tabViewVehicleLayout);
         tabViewVehicleLayout.setHorizontalGroup(
             tabViewVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabViewVehicleLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabViewVehicleLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addContainerGap()
+                .addGroup(tabViewVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(tabViewVehicleLayout.createSequentialGroup()
+                        .addGap(0, 799, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addGap(29, 29, 29))
         );
         tabViewVehicleLayout.setVerticalGroup(
@@ -377,73 +383,92 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(228, Short.MAX_VALUE))
         );
 
-        dashTabPanel.addTab("tab3", tabViewVehicle);
+        dashTabPanel.addTab("VIEW", tabViewVehicle);
 
         tabAddVehicle.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(23, 35, 76));
+        jLabel1.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 36, 115));
         jLabel1.setText("License Plate");
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(23, 35, 76));
+        jLabel2.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 36, 115));
         jLabel2.setText("Year");
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(23, 35, 76));
+        jLabel3.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 36, 115));
         jLabel3.setText("Make");
 
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(23, 35, 76));
+        jLabel4.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 36, 115));
         jLabel4.setText("Model");
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(23, 35, 76));
+        jLabel5.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 36, 115));
         jLabel5.setText("Category");
 
-        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(23, 35, 76));
+        jLabel11.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 36, 115));
         jLabel11.setText("Cost per Month");
 
-        jTextField1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtLplate.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
 
-        jComboBox1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbMake.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        cmbMake.setForeground(new java.awt.Color(0, 36, 115));
+        cmbMake.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Make--" }));
 
-        jComboBox2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbYear.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        cmbYear.setForeground(new java.awt.Color(0, 36, 115));
+        cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Year--", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990" }));
+        cmbYear.setToolTipText("");
 
-        jTextField2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jTextField2.setToolTipText("");
+        txtModel.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        txtModel.setToolTipText("");
 
-        jComboBox3.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCategory.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        cmbCategory.setForeground(new java.awt.Color(0, 36, 115));
+        cmbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Category--" }));
 
-        jTextField3.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jTextField3.setToolTipText("");
+        txtCostpm.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        txtCostpm.setToolTipText("");
 
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Photo");
-        jLabel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        imgVehicle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgVehicle.setText("Photo");
+        imgVehicle.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton2.setBackground(new java.awt.Color(23, 233, 224));
-        jButton2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(2, 127, 255));
-        jButton2.setText("Browse");
+        btnBrowse.setBackground(new java.awt.Color(0, 106, 188));
+        btnBrowse.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        btnBrowse.setForeground(new java.awt.Color(255, 255, 255));
+        btnBrowse.setText("Browse");
+        btnBrowse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseActionPerformed(evt);
+            }
+        });
 
-        jButton6.setBackground(new java.awt.Color(23, 233, 224));
-        jButton6.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(2, 127, 255));
-        jButton6.setText("Save");
+        btnSave.setBackground(new java.awt.Color(0, 106, 188));
+        btnSave.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
-        jButton7.setBackground(new java.awt.Color(23, 233, 224));
-        jButton7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(2, 127, 255));
-        jButton7.setText("Clear");
+        btnClear.setBackground(new java.awt.Color(0, 106, 188));
+        btnClear.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tabAddVehicleLayout = new javax.swing.GroupLayout(tabAddVehicle);
         tabAddVehicle.setLayout(tabAddVehicleLayout);
@@ -461,100 +486,125 @@ public class MainMenu extends javax.swing.JFrame {
                     .addComponent(jLabel11))
                 .addGap(55, 55, 55)
                 .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField1)
-                    .addComponent(jComboBox2, 0, 158, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2)
-                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(txtCostpm)
+                    .addComponent(txtLplate)
+                    .addComponent(cmbYear, 0, 158, Short.MAX_VALUE)
+                    .addComponent(cmbMake, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtModel)
+                    .addComponent(cmbCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(imgVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
             .addGroup(tabAddVehicleLayout.createSequentialGroup()
                 .addGap(138, 138, 138)
-                .addComponent(jButton6)
+                .addComponent(btnSave)
                 .addGap(58, 58, 58)
-                .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnClear)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
+                .addComponent(btnBrowse)
                 .addGap(160, 160, 160))
         );
         tabAddVehicleLayout.setVerticalGroup(
             tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabAddVehicleLayout.createSequentialGroup()
-                .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(53, 53, 53)
+                .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(tabAddVehicleLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabAddVehicleLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
                         .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtLplate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
                         .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
                         .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbMake, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
-                        .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))))
-                .addGap(59, 59, 59)
+                        .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCostpm)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(imgVehicle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
                 .addGroup(tabAddVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton6)
-                    .addComponent(jButton2))
-                .addContainerGap(248, Short.MAX_VALUE))
+                    .addComponent(btnClear)
+                    .addComponent(btnSave)
+                    .addComponent(btnBrowse))
+                .addContainerGap(409, Short.MAX_VALUE))
         );
 
-        dashTabPanel.addTab("tab2", tabAddVehicle);
+        dashTabPanel.addTab("ADD", tabAddVehicle);
 
         tabSearchVehicle.setBackground(new java.awt.Color(255, 255, 255));
 
+        jComboBox4.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel13.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 36, 115));
         jLabel13.setText("Make");
 
+        jTextField4.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jTextField4.setToolTipText("");
 
+        jLabel14.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 36, 115));
         jLabel14.setText("Model");
 
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Photo");
         jLabel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel16.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 36, 115));
         jLabel16.setText("Category");
 
+        jButton3.setBackground(new java.awt.Color(0, 106, 188));
+        jButton3.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Browse");
 
+        jLabel17.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 36, 115));
         jLabel17.setText("Cost per Month");
 
+        jLabel18.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 36, 115));
         jLabel18.setText("License Plate");
 
+        jLabel19.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 36, 115));
         jLabel19.setText("Year");
 
+        jComboBox5.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jComboBox6.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jTextField6.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jTextField6.setToolTipText("");
 
+        jComboBox7.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jButton4.setBackground(new java.awt.Color(0, 106, 188));
+        jButton4.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Search");
 
+        jButton5.setBackground(new java.awt.Color(0, 106, 188));
+        jButton5.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Update");
 
         javax.swing.GroupLayout tabSearchVehicleLayout = new javax.swing.GroupLayout(tabSearchVehicle);
@@ -576,13 +626,8 @@ public class MainMenu extends javax.swing.JFrame {
                     .addGroup(tabSearchVehicleLayout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addComponent(jButton4)))
-                .addGap(40, 40, 40)
+                .addGap(53, 53, 53)
                 .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabSearchVehicleLayout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(165, 165, 165))
                     .addGroup(tabSearchVehicleLayout.createSequentialGroup()
                         .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField4)
@@ -591,18 +636,20 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(jTextField6)
                             .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(73, 73, 73)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton5))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSearchVehicleLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(202, 202, 202))
         );
         tabSearchVehicleLayout.setVerticalGroup(
             tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabSearchVehicleLayout.createSequentialGroup()
-                .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabSearchVehicleLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabSearchVehicleLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
@@ -626,176 +673,220 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17))))
-                .addGap(28, 28, 28)
+                            .addComponent(jLabel17)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSearchVehicleLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(43, 43, 43)
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
                 .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
                     .addComponent(jButton4)
                     .addComponent(jButton5))
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(385, Short.MAX_VALUE))
         );
 
-        dashTabPanel.addTab("tab4", tabSearchVehicle);
+        dashTabPanel.addTab("SEARCH", tabSearchVehicle);
 
         tabBookVehicle.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel20.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel20.setText("License Plate");
 
+        jLabel21.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel21.setText("Year");
 
+        jLabel22.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel22.setText("Make");
 
+        jLabel23.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel23.setText("Model");
 
+        jLabel24.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel24.setText("Customer Name");
 
+        jLabel25.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel25.setText("Address");
 
+        jLabel26.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel26.setText("Contact");
 
+        jLabel27.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel27.setText("Booking Date");
 
+        jLabel28.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel28.setText("No of Months");
 
+        jButton8.setBackground(new java.awt.Color(0, 106, 188));
+        jButton8.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Get Bill");
 
+        jButton9.setBackground(new java.awt.Color(0, 106, 188));
+        jButton9.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Book");
 
+        jComboBox8.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jTextField5.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+
+        jTextField7.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+
+        jTextField8.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+
+        jTextField9.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jTextField9.setToolTipText("");
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
+        jTextField10.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jTextField10.setToolTipText("");
 
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
-            }
-        });
+        jTextField11.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+
+        jTextField12.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
 
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setText("Customer");
+        jLabel29.setToolTipText("");
         jLabel29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jButton10.setBackground(new java.awt.Color(0, 106, 188));
+        jButton10.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setText("Browse");
+
+        jLabel10.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel10.setText("Customer Photo");
+        jLabel10.setToolTipText("");
 
         javax.swing.GroupLayout tabBookVehicleLayout = new javax.swing.GroupLayout(tabBookVehicle);
         tabBookVehicle.setLayout(tabBookVehicleLayout);
         tabBookVehicleLayout.setHorizontalGroup(
             tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel20)
+                .addGap(41, 41, 41)
+                .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel21)
+                .addGap(16, 16, 16)
+                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
+                .addComponent(jLabel22)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel23)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(104, 104, 104)
+                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                .addGap(690, 690, 690)
+                .addComponent(jButton10))
+            .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(jButton9)
+                .addGap(27, 27, 27)
+                .addComponent(jButton8))
+            .addGroup(tabBookVehicleLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
-                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel20))
-                        .addGap(33, 33, 33)
-                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabBookVehicleLayout.createSequentialGroup()
-                        .addComponent(jLabel27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabBookVehicleLayout.createSequentialGroup()
-                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel26))
-                        .addGap(70, 70, 70)
-                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24))
+                .addGap(22, 22, 22)
                 .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabBookVehicleLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                            .addComponent(jTextField5))
-                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabBookVehicleLayout.createSequentialGroup()
-                                .addGap(74, 74, 74)
-                                .addComponent(jLabel22)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel23)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabBookVehicleLayout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(22, 22, 22))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabBookVehicleLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton10)
-                        .addGap(138, 138, 138))))
-            .addGroup(tabBookVehicleLayout.createSequentialGroup()
-                .addGap(272, 272, 272)
-                .addComponent(jButton9)
-                .addGap(74, 74, 74)
-                .addComponent(jButton8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(330, 330, 330)
+                        .addComponent(jLabel10))
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel28)
+                        .addGap(15, 15, 15)
+                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         tabBookVehicleLayout.setVerticalGroup(
             tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabBookVehicleLayout.createSequentialGroup()
                 .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabBookVehicleLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel23)
-                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)
-                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabBookVehicleLayout.createSequentialGroup()
-                                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel27)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel28))
-                                .addGap(45, 45, 45)
-                                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel24)
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(49, 49, 49)
-                                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel25)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(tabBookVehicleLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton10)))
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(tabBookVehicleLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel26)))
-                .addGap(97, 97, 97)
-                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(50, 50, 50)
+                        .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField7)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField8))))
+                .addGap(30, 30, 30)
+                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField12)
+                    .addComponent(jTextField11))
+                .addGap(48, 48, 48)
+                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tabBookVehicleLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                        .addGap(50, 50, 50)
+                        .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField10)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(16, 16, 16)
+                .addComponent(jButton10)
+                .addGap(59, 59, 59)
+                .addGroup(tabBookVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton9)
-                    .addComponent(jButton8))
-                .addGap(143, 143, 143))
+                    .addComponent(jButton8)))
         );
 
-        dashTabPanel.addTab("tab5", tabBookVehicle);
+        dashTabPanel.addTab("BOOK", null, tabBookVehicle, "");
 
         dash.add(dashTabPanel, java.awt.BorderLayout.PAGE_START);
+        dashTabPanel.getAccessibleContext().setAccessibleName("HOME");
 
         getContentPane().add(dash, java.awt.BorderLayout.CENTER);
 
@@ -823,9 +914,25 @@ public class MainMenu extends javax.swing.JFrame {
         dashTabPanel.setSelectedIndex(4);
     }//GEN-LAST:event_btnBookVMouseClicked
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+
+       /* Vehicle vehicle = new Vehicle(txtLplate.getText(),(cmbYear.getSelectedItem().toString()),cmbMake.getSelectedItem(),txtModel.getText(),cmbCategory.getSelectedItem(),Integer.parseInt(txtCostpm.getText()), imgVehicle.getText());
+        SaveVehicle saveVehicle = new SaveVehicle(vehicle);
+        saveVehicle.saveVehicleToDatabase();*/
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
+        JFileChooser file = new JFileChooser();
+    }//GEN-LAST:event_btnBrowseActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        txtLplate.setText("");
+        cmbYear.setSelectedIndex(0);
+        cmbMake.setSelectedIndex(0);
+        txtModel.setText("");
+        cmbCategory.setSelectedIndex(0);
+        txtCostpm.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -865,35 +972,36 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnAddV;
     private javax.swing.JLabel btnBookV;
+    private javax.swing.JButton btnBrowse;
+    private javax.swing.JButton btnClear;
     private javax.swing.JLabel btnClose;
     private javax.swing.JLabel btnHome;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel btnSearchV;
     private javax.swing.JLabel btnViewV;
     private javax.swing.JPanel buttonClose;
+    private javax.swing.JComboBox<String> cmbCategory;
+    private javax.swing.JComboBox<String> cmbMake;
+    private javax.swing.JComboBox<String> cmbYear;
     private javax.swing.JPanel dash;
     private javax.swing.JTabbedPane dashTabPanel;
     private javax.swing.JPanel header;
+    private javax.swing.JLabel imgVehicle;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -934,12 +1042,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
@@ -955,6 +1060,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel tabHome;
     private javax.swing.JPanel tabSearchVehicle;
     private javax.swing.JPanel tabViewVehicle;
+    private javax.swing.JTextField txtCostpm;
+    private javax.swing.JTextField txtLplate;
+    private javax.swing.JTextField txtModel;
     // End of variables declaration//GEN-END:variables
 
 }
