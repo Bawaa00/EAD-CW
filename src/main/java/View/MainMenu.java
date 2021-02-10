@@ -423,7 +423,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         cmbMake.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         cmbMake.setForeground(new java.awt.Color(0, 36, 115));
-        cmbMake.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Make--" }));
+        cmbMake.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Make--", "ACURA", "ASTON-MARTIN", "AUDI", "BENTLY", "BMW", "CADILLAC", "CHERVOLET", "FIAT", "FORD", "HONDA", "HYUNDAI", "JAGUAR", "JEEP", "KIA", "LAND ROVER", "LEXUS", "MAZDA", "MERCEDES", "MINI", "MITSUBISHI", "NISSAN", "PEUGOT", "RENAULT", "SUBARU", "SUZUKI", "TESLA", "TOYOTA", "VOLKSWAGEN" }));
 
         cmbYear.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         cmbYear.setForeground(new java.awt.Color(0, 36, 115));
@@ -435,7 +435,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         cmbCategory.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         cmbCategory.setForeground(new java.awt.Color(0, 36, 115));
-        cmbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Category--" }));
+        cmbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Category--", "GENERAL", "LUXUARY", "PREMIUM", "SUV", "VAN" }));
 
         txtCostpm.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         txtCostpm.setToolTipText("");
@@ -920,9 +920,9 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
-       /* Vehicle vehicle = new Vehicle(txtLplate.getText(),(cmbYear.getSelectedItem().toString()),cmbMake.getSelectedItem(),txtModel.getText(),cmbCategory.getSelectedItem(),Integer.parseInt(txtCostpm.getText()), imgVehicle.getText());
+        Vehicle vehicle = new Vehicle(txtLplate.getText(),Integer.parseInt(cmbYear.getSelectedItem().toString()),cmbMake.getSelectedItem().toString(),txtModel.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtCostpm.getText()), imgVehicle.getText());
         SaveVehicle saveVehicle = new SaveVehicle(vehicle);
-        saveVehicle.saveVehicleToDatabase();*/
+        saveVehicle.saveVehicleToDatabase();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
