@@ -143,10 +143,17 @@ public class MainMenu extends javax.swing.JFrame {
         imgCustomer = new javax.swing.JLabel();
         btnBBrowse = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        btnCalculate = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        txtCContact1 = new javax.swing.JTextField();
+        txtCContact2 = new javax.swing.JTextField();
+        txtCContact3 = new javax.swing.JTextField();
         btnBook = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 800));
+        setPreferredSize(new java.awt.Dimension(1250, 900));
 
         header.setBackground(new java.awt.Color(23, 35, 76));
         header.setPreferredSize(new java.awt.Dimension(900, 64));
@@ -186,7 +193,7 @@ public class MainMenu extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        header.add(optionIcons, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 0, 64, 64));
+        header.add(optionIcons, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 0, 64, 64));
 
         getContentPane().add(header, java.awt.BorderLayout.PAGE_START);
 
@@ -355,7 +362,7 @@ public class MainMenu extends javax.swing.JFrame {
         tabHome.setLayout(tabHomeLayout);
         tabHomeLayout.setHorizontalGroup(
             tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 943, Short.MAX_VALUE)
+            .addGap(0, 1039, Short.MAX_VALUE)
         );
         tabHomeLayout.setVerticalGroup(
             tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,7 +401,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(tabViewVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
                     .addGroup(tabViewVehicleLayout.createSequentialGroup()
-                        .addGap(0, 799, Short.MAX_VALUE)
+                        .addGap(0, 895, Short.MAX_VALUE)
                         .addComponent(btnView)))
                 .addGap(29, 29, 29))
         );
@@ -521,7 +528,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(btnSave)
                 .addGap(58, 58, 58)
                 .addComponent(btnClear)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 452, Short.MAX_VALUE)
                 .addComponent(btnBrowse)
                 .addGap(160, 160, 160))
         );
@@ -590,6 +597,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnBrowseSearch.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         btnBrowseSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnBrowseSearch.setText("Browse");
+        btnBrowseSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseSearchActionPerformed(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 36, 115));
@@ -633,6 +645,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.setToolTipText("");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         txtSYear.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         txtSYear.setToolTipText("");
@@ -679,7 +696,7 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(btnSearch))
                         .addGap(73, 73, 73)
                         .addComponent(imgSVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSearchVehicleLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBrowseSearch)
@@ -760,8 +777,8 @@ public class MainMenu extends javax.swing.JFrame {
         tabBookVehicle.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 93, 140));
 
         jLabel26.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        jLabel26.setText("Contact");
-        tabBookVehicle.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 80, 28));
+        jLabel26.setText("Final Bill Amount (Rs.)");
+        tabBookVehicle.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 180, 28));
 
         jLabel27.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel27.setText("Booking Date");
@@ -775,7 +792,7 @@ public class MainMenu extends javax.swing.JFrame {
         btnBill.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         btnBill.setForeground(new java.awt.Color(255, 255, 255));
         btnBill.setText("Get Bill");
-        tabBookVehicle.add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, -1, -1));
+        tabBookVehicle.add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 690, -1, -1));
 
         btnBSearch.setBackground(new java.awt.Color(0, 106, 188));
         btnBSearch.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
@@ -791,15 +808,12 @@ public class MainMenu extends javax.swing.JFrame {
         cmbBLplate.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         tabBookVehicle.add(cmbBLplate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 146, -1));
 
-        txtBYear.setEditable(false);
         txtBYear.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         tabBookVehicle.add(txtBYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 86, -1));
 
-        txtBMake.setEditable(false);
         txtBMake.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         tabBookVehicle.add(txtBMake, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 99, -1));
 
-        txtBModel.setEditable(false);
         txtBModel.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         tabBookVehicle.add(txtBModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(827, 48, 94, -1));
 
@@ -816,7 +830,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         txtCContact.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         txtCContact.setToolTipText("");
-        tabBookVehicle.add(txtCContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 150, -1));
+        tabBookVehicle.add(txtCContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 640, 150, -1));
 
         txtBDate.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         tabBookVehicle.add(txtBDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 150, 32));
@@ -827,7 +841,7 @@ public class MainMenu extends javax.swing.JFrame {
         imgCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgCustomer.setToolTipText("");
         imgCustomer.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tabBookVehicle.add(imgCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 300, 301, 254));
+        tabBookVehicle.add(imgCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 301, 254));
 
         btnBBrowse.setBackground(new java.awt.Color(0, 106, 188));
         btnBBrowse.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
@@ -838,18 +852,48 @@ public class MainMenu extends javax.swing.JFrame {
                 btnBBrowseActionPerformed(evt);
             }
         });
-        tabBookVehicle.add(btnBBrowse, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 570, -1, -1));
+        tabBookVehicle.add(btnBBrowse, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 540, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel10.setText("Customer Photo");
         jLabel10.setToolTipText("");
-        tabBookVehicle.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, -1, 32));
+        tabBookVehicle.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, -1, 32));
+
+        btnCalculate.setBackground(new java.awt.Color(0, 106, 188));
+        btnCalculate.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        btnCalculate.setForeground(new java.awt.Color(255, 255, 255));
+        btnCalculate.setText("Calculate");
+        tabBookVehicle.add(btnCalculate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 700, -1, -1));
+
+        jLabel29.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel29.setText("Contact");
+        tabBookVehicle.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, 80, 28));
+
+        jLabel31.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel31.setText("Bill Amount (Rs.)");
+        tabBookVehicle.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 180, 28));
+
+        jLabel32.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel32.setText("Advance Payment (Rs.)");
+        tabBookVehicle.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 180, 28));
+
+        txtCContact1.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        txtCContact1.setToolTipText("");
+        tabBookVehicle.add(txtCContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 150, -1));
+
+        txtCContact2.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        txtCContact2.setToolTipText("");
+        tabBookVehicle.add(txtCContact2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 150, -1));
+
+        txtCContact3.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        txtCContact3.setToolTipText("");
+        tabBookVehicle.add(txtCContact3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 150, -1));
 
         btnBook.setBackground(new java.awt.Color(0, 106, 188));
         btnBook.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         btnBook.setForeground(new java.awt.Color(255, 255, 255));
         btnBook.setText("Book");
-        tabBookVehicle.add(btnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 600, -1, -1));
+        tabBookVehicle.add(btnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 690, -1, -1));
 
         dashTabPanel.addTab("BOOK", null, tabBookVehicle, "");
 
@@ -887,6 +931,7 @@ public class MainMenu extends javax.swing.JFrame {
         Vehicle vehicle = new Vehicle(txtLplate.getText(),Integer.parseInt(cmbYear.getSelectedItem().toString()),cmbMake.getSelectedItem().toString(),txtModel.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtCostpm.getText()), filePath);
         SaveVehicle saveVehicle = new SaveVehicle(vehicle);
         saveVehicle.saveVehicleToDatabase();
+        RefreshAddTab();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
@@ -997,6 +1042,46 @@ public class MainMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBBrowseActionPerformed
 
+    private void btnBrowseSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseSearchActionPerformed
+        JFileChooser file = new JFileChooser("E:\\Downloads\\");
+        //file.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images","jpg","gif","png");
+        file.addChoosableFileFilter(filter);
+        int result = file.showSaveDialog(null);
+        if(result == JFileChooser.APPROVE_OPTION){
+            File selectedFile = file.getSelectedFile();
+            filePath = selectedFile.getAbsolutePath();
+            imgSVehicle.setIcon(ResizeUpdateImage(filePath));
+        }
+        else if(result == JFileChooser.CANCEL_OPTION){
+            System.out.println("No File Selected");
+        }
+    }//GEN-LAST:event_btnBrowseSearchActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        try{
+            int input = JOptionPane.showConfirmDialog(this,"Are you sure yow want to delete","Warning", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
+            if(input == 0)
+            {
+                Connection con = DB.createConnection();
+                String sql = "delete from vehicles where LPlate = '"+cmbSPlateNo.getSelectedItem().toString()+"'";
+                PreparedStatement statement = con.prepareStatement(sql);  
+                int i = statement.executeUpdate();
+                if(i>=1){
+                    JOptionPane.showMessageDialog(null,"Data Deleted Successfully!","Information",JOptionPane.INFORMATION_MESSAGE);
+                    RefreshSearchTab();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Data couldnt delete","Error",JOptionPane.INFORMATION_MESSAGE);
+                }
+            } 
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(this,ex);
+        }
+        
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
     public ImageIcon ResizeImage(String ImagePath){
         ImageIcon MyImage = new ImageIcon(ImagePath);
         Image img = MyImage.getImage();
@@ -1023,6 +1108,8 @@ public class MainMenu extends javax.swing.JFrame {
     
     private void FillCombo(){
         try{
+            cmbSPlateNo.removeAllItems();
+            cmbBLplate.removeAllItems();
             Connection con = DB.createConnection();
             String sql = "select * from vehicles";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -1036,6 +1123,26 @@ public class MainMenu extends javax.swing.JFrame {
         catch(Exception ex){
             JOptionPane.showMessageDialog(this,ex);
         }
+    }
+    
+    private void RefreshAddTab(){
+        FillCombo();
+        txtLplate.setText("");
+        cmbYear.setSelectedIndex(0);
+        cmbMake.setSelectedIndex(0);
+        txtModel.setText("");
+        cmbCategory.setSelectedIndex(0);
+        txtCostpm.setText("");
+    }
+    
+    private void RefreshSearchTab(){
+        FillCombo();
+        cmbSPlateNo.setSelectedIndex(-1);
+        txtSYear.setText("");
+        txtSMake.setText("");
+        txtSModel.setText("");
+        txtSCategory.setText("");
+        txtSCostPerMonth.setText("");
     }
     
     /**
@@ -1082,6 +1189,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel btnBookV;
     private javax.swing.JButton btnBrowse;
     private javax.swing.JButton btnBrowseSearch;
+    private javax.swing.JButton btnCalculate;
     private javax.swing.JButton btnClear;
     private javax.swing.JLabel btnClose;
     private javax.swing.JButton btnDelete;
@@ -1123,8 +1231,11 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1160,6 +1271,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JTextField txtBnom;
     private javax.swing.JTextArea txtCAddress;
     private javax.swing.JTextField txtCContact;
+    private javax.swing.JTextField txtCContact1;
+    private javax.swing.JTextField txtCContact2;
+    private javax.swing.JTextField txtCContact3;
     private javax.swing.JTextField txtCName;
     private javax.swing.JTextField txtCostpm;
     private javax.swing.JTextField txtLplate;
