@@ -6,6 +6,7 @@
 package View;
 
 import Controller.SaveVehicle;
+import Controller.UpdateVehicle;
 import Model.DB;
 import Model.Vehicle;
 import java.awt.Image;
@@ -35,6 +36,8 @@ public class MainMenu extends javax.swing.JFrame {
         initComponents();
         FillCombo();
     }
+    
+    private String filePath;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -576,7 +579,7 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel14.setText("Model");
 
         imgSVehicle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgSVehicle.setText("Photo");
+        imgSVehicle.setToolTipText("");
         imgSVehicle.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel16.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
@@ -619,6 +622,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnUpdate.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setBackground(new java.awt.Color(0, 106, 188));
         btnDelete.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
@@ -825,6 +833,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnBBrowse.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         btnBBrowse.setForeground(new java.awt.Color(255, 255, 255));
         btnBBrowse.setText("Browse");
+        btnBBrowse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBBrowseActionPerformed(evt);
+            }
+        });
         tabBookVehicle.add(btnBBrowse, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 570, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
@@ -871,7 +884,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
-        Vehicle vehicle = new Vehicle(txtLplate.getText(),Integer.parseInt(cmbYear.getSelectedItem().toString()),cmbMake.getSelectedItem().toString(),txtModel.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtCostpm.getText()), imgVehicle.getText());
+        Vehicle vehicle = new Vehicle(txtLplate.getText(),Integer.parseInt(cmbYear.getSelectedItem().toString()),cmbMake.getSelectedItem().toString(),txtModel.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtCostpm.getText()), filePath);
         SaveVehicle saveVehicle = new SaveVehicle(vehicle);
         saveVehicle.saveVehicleToDatabase();
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -884,8 +897,8 @@ public class MainMenu extends javax.swing.JFrame {
         int result = file.showSaveDialog(null);
         if(result == JFileChooser.APPROVE_OPTION){
             File selectedFile = file.getSelectedFile();
-            String path = selectedFile.getAbsolutePath();
-            imgVehicle.setIcon(ResizeImage(path));
+            filePath = selectedFile.getAbsolutePath();
+            imgVehicle.setIcon(ResizeImage(filePath));
         }
         else if(result == JFileChooser.CANCEL_OPTION){
             System.out.println("No File Selected");
@@ -934,7 +947,10 @@ public class MainMenu extends javax.swing.JFrame {
                 txtSModel.setText(rs.getString(4));
                 txtSCategory.setText(rs.getString(5));
                 txtSCostPerMonth.setText(rs.getString(6));  
+                filePath = rs.getString(7);
             }
+            ImageIcon img = new ImageIcon(filePath);
+            imgSVehicle.setIcon(ResizeUpdateImage(filePath));
         }
         catch(Exception ex){
             JOptionPane.showMessageDialog(this, ex);
@@ -959,12 +975,50 @@ public class MainMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBSearchActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        Vehicle vehicle = new Vehicle(cmbSPlateNo.getSelectedItem().toString(),Integer.parseInt(txtSYear.getText()),txtSMake.getText(),txtSModel.getText(),txtSCategory.getText(),Integer.parseInt(txtSCostPerMonth.getText()), filePath);
+        UpdateVehicle uv = new UpdateVehicle(vehicle);
+        uv.updateVehicleDatabase();
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnBBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBBrowseActionPerformed
+        JFileChooser file = new JFileChooser();
+        file.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images","jpg","gif","png");
+        file.addChoosableFileFilter(filter);
+        int result = file.showSaveDialog(null);
+        if(result == JFileChooser.APPROVE_OPTION){
+            File selectedFile = file.getSelectedFile();
+            filePath = selectedFile.getAbsolutePath();
+            imgCustomer.setIcon(ResizeCustomerImage(filePath));
+        }
+        else if(result == JFileChooser.CANCEL_OPTION){
+            System.out.println("No File Selected");
+        }
+    }//GEN-LAST:event_btnBBrowseActionPerformed
+
     public ImageIcon ResizeImage(String ImagePath){
         ImageIcon MyImage = new ImageIcon(ImagePath);
         Image img = MyImage.getImage();
         Image newImg = img.getScaledInstance(imgVehicle.getWidth(),imgVehicle.getHeight(),Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(newImg);
         return image;
+    }
+    
+    public ImageIcon ResizeUpdateImage(String ImagePath){
+        ImageIcon MyImage = new ImageIcon(ImagePath);
+        Image img = MyImage.getImage();
+        Image newImg = img.getScaledInstance(imgSVehicle.getWidth(),imgSVehicle.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImg);
+        return image;
+    }
+    
+    public ImageIcon ResizeCustomerImage(String ImagePath){
+       ImageIcon MyImage = new ImageIcon(ImagePath);
+        Image img = MyImage.getImage();
+        Image newImg = img.getScaledInstance(imgCustomer.getWidth(),imgCustomer.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImg);
+        return image; 
     }
     
     private void FillCombo(){
