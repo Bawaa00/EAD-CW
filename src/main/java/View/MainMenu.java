@@ -6,12 +6,21 @@
 package View;
 
 import Controller.SaveVehicle;
+import Model.DB;
 import Model.Vehicle;
 import java.awt.Image;
 import java.io.File;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import static javax.swing.UIManager.getInt;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -69,7 +78,7 @@ public class MainMenu extends javax.swing.JFrame {
         tabViewVehicle = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableVehicle = new javax.swing.JTable();
         tabAddVehicle = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -353,20 +362,22 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jButton1.setText("VIEW ALL");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jTable1.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableVehicle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tableVehicle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "License Plate", "Year", "Make", "Model", "Category", "Cost Per Month"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableVehicle);
 
         javax.swing.GroupLayout tabViewVehicleLayout = new javax.swing.GroupLayout(tabViewVehicle);
         tabViewVehicle.setLayout(tabViewVehicleLayout);
@@ -950,6 +961,27 @@ public class MainMenu extends javax.swing.JFrame {
         txtCostpm.setText("");
     }//GEN-LAST:event_btnClearActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Connection con;
+        try {
+            con = DB.createConnection();
+            String sql = ("select LPlate,Year,Make,Model,Category,Cost_per_month from vehicles");
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            DefaultTableModel tm = (DefaultTableModel)tableVehicle.getModel();
+            tm.setRowCount(0);
+            tm.getRowCount();
+            while (rs.next()){
+                Object obj[] = {rs.getString(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6)};
+                tm.addRow(obj);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public ImageIcon ResizeImage(String ImagePath){
         ImageIcon MyImage = new ImageIcon(ImagePath);
         Image img = MyImage.getImage();
@@ -1063,7 +1095,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -1083,6 +1114,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel tabHome;
     private javax.swing.JPanel tabSearchVehicle;
     private javax.swing.JPanel tabViewVehicle;
+    private javax.swing.JTable tableVehicle;
     private javax.swing.JTextField txtCostpm;
     private javax.swing.JTextField txtLplate;
     private javax.swing.JTextField txtModel;
