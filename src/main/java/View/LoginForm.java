@@ -5,6 +5,13 @@
  */
 package View;
 
+import Model.DB;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Bawantha
@@ -91,6 +98,11 @@ public class LoginForm extends javax.swing.JFrame {
         btnLog.setForeground(new java.awt.Color(255, 255, 255));
         btnLog.setText("LOGIN");
         btnLog.setToolTipText("");
+        btnLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 100, 50));
 
         jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 20)); // NOI18N
@@ -121,6 +133,32 @@ public class LoginForm extends javax.swing.JFrame {
     private void txtPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPassMouseClicked
         txtPass.setText("");
     }//GEN-LAST:event_txtPassMouseClicked
+
+    private void btnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogActionPerformed
+             try{
+             Connection con = DB.createConnection();
+             String sql = "select * from login  where username=? and password=? ";
+              PreparedStatement pst = con.prepareStatement(sql);
+              pst.setString(1, txtUname.getText());
+              pst.setString(2, txtPass.getText());
+              ResultSet rs = pst.executeQuery();
+              if(!rs.next()){
+                  JOptionPane.showMessageDialog(null, "Username and Password do not match");
+                  txtPass.setText("");
+                  txtUname.setText("");
+              }
+              else{
+                  JOptionPane.showMessageDialog(null, "Username and Password matched");
+                  MainMenu mm = new MainMenu();
+                  mm.setVisible(true);
+                  this.setVisible(false);
+              }
+              con.close();
+         }
+         catch(Exception e){
+             JOptionPane.showMessageDialog(null,e);
+         }
+    }//GEN-LAST:event_btnLogActionPerformed
 
     /**
      * @param args the command line arguments
