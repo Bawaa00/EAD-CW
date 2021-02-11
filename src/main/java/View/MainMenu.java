@@ -41,6 +41,7 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu() {
         initComponents();
         FillCombo();
+        loadDashboard();
         btnBill.setVisible(false);
     }
     
@@ -88,14 +89,18 @@ public class MainMenu extends javax.swing.JFrame {
         tabHome = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        txtNOV = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
+        txtNOB = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
         tabViewVehicle = new javax.swing.JPanel();
         btnView = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableVehicle = new javax.swing.JTable();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
         tabAddVehicle = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -114,6 +119,8 @@ public class MainMenu extends javax.swing.JFrame {
         btnSave = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         txtAddError = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
         tabSearchVehicle = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         txtSCostPerMonth = new javax.swing.JTextField();
@@ -133,6 +140,8 @@ public class MainMenu extends javax.swing.JFrame {
         txtSCategory = new javax.swing.JTextField();
         txtSMake = new javax.swing.JTextField();
         txtSearchError = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel38 = new javax.swing.JLabel();
         tabBookVehicle = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -171,6 +180,8 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         txtBDate = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1350, 1000));
@@ -379,59 +390,84 @@ public class MainMenu extends javax.swing.JFrame {
         tabHome.setInheritsPopupMenu(true);
         tabHome.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel11.setBackground(new java.awt.Color(28, 128, 239));
+        jPanel11.setToolTipText("");
         jPanel11.setPreferredSize(new java.awt.Dimension(400, 0));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel12.setBackground(new java.awt.Color(0, 48, 131));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("NO OF VEHICLES");
 
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("jLabel15");
+        txtNOV.setBackground(new java.awt.Color(0, 48, 131));
+        txtNOV.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtNOV.setForeground(new java.awt.Color(255, 255, 255));
+        txtNOV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNOV.setText("0");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
-            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(txtNOV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
+                .addComponent(txtNOV, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
         );
 
         tabHome.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 60, 410, 230));
 
-        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jPanel12.setBackground(new java.awt.Color(28, 128, 239));
+        jPanel12.setToolTipText("");
+
+        jLabel32.setBackground(new java.awt.Color(0, 48, 131));
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel32.setText("NO OF BOOKINGS");
 
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel36.setText("jLabel36");
+        txtNOB.setBackground(new java.awt.Color(0, 48, 131));
+        txtNOB.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtNOB.setForeground(new java.awt.Color(255, 255, 255));
+        txtNOB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNOB.setText("0");
+        txtNOB.setToolTipText("");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-            .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(txtNOB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
+                .addComponent(txtNOB, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
         );
 
         tabHome.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(579, 60, -1, 230));
 
+        jPanel13.setLayout(new java.awt.BorderLayout());
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setIcon(new javax.swing.ImageIcon("E:\\Downloads\\blue-background-pinterest-plain-aesthetic-with-stars-scaled.jpg")); // NOI18N
+        jPanel13.add(jLabel15, java.awt.BorderLayout.CENTER);
+
+        tabHome.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 890));
+
         dashTabPanel.addTab("HOME", tabHome);
 
         tabViewVehicle.setBackground(new java.awt.Color(153, 204, 255));
+        tabViewVehicle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnView.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         btnView.setText("VIEW ALL");
@@ -440,6 +476,7 @@ public class MainMenu extends javax.swing.JFrame {
                 btnViewActionPerformed(evt);
             }
         });
+        tabViewVehicle.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 36, -1, -1));
 
         tableVehicle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tableVehicle.setForeground(new java.awt.Color(0, 48, 131));
@@ -457,28 +494,15 @@ public class MainMenu extends javax.swing.JFrame {
         tableVehicle.setShowVerticalLines(false);
         jScrollPane1.setViewportView(tableVehicle);
 
-        javax.swing.GroupLayout tabViewVehicleLayout = new javax.swing.GroupLayout(tabViewVehicle);
-        tabViewVehicle.setLayout(tabViewVehicleLayout);
-        tabViewVehicleLayout.setHorizontalGroup(
-            tabViewVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabViewVehicleLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(tabViewVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(tabViewVehicleLayout.createSequentialGroup()
-                        .addGap(0, 905, Short.MAX_VALUE)
-                        .addComponent(btnView)))
-                .addGap(29, 29, 29))
-        );
-        tabViewVehicleLayout.setVerticalGroup(
-            tabViewVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabViewVehicleLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(btnView)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
-        );
+        tabViewVehicle.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 85, 1055, 591));
+
+        jPanel15.setLayout(new java.awt.BorderLayout());
+
+        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel37.setIcon(new javax.swing.ImageIcon("E:\\Downloads\\blue-background-pinterest-plain-aesthetic-with-stars-scaled.jpg")); // NOI18N
+        jPanel15.add(jLabel37, java.awt.BorderLayout.CENTER);
+
+        tabViewVehicle.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1220, 890));
 
         dashTabPanel.addTab("VIEW", tabViewVehicle);
 
@@ -580,11 +604,19 @@ public class MainMenu extends javax.swing.JFrame {
         });
         tabAddVehicle.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 464, -1, -1));
 
-        txtAddError.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        txtAddError.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         txtAddError.setForeground(new java.awt.Color(255, 0, 0));
         txtAddError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtAddError.setText(".");
         tabAddVehicle.add(txtAddError, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 434, 53));
+
+        jPanel14.setLayout(new java.awt.BorderLayout());
+
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel36.setIcon(new javax.swing.ImageIcon("E:\\Downloads\\blue-background-pinterest-plain-aesthetic-with-stars-scaled.jpg")); // NOI18N
+        jPanel14.add(jLabel36, java.awt.BorderLayout.CENTER);
+
+        tabAddVehicle.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 890));
 
         dashTabPanel.addTab("ADD", tabAddVehicle);
 
@@ -696,11 +728,19 @@ public class MainMenu extends javax.swing.JFrame {
         txtSMake.setToolTipText("");
         tabSearchVehicle.add(txtSMake, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 215, 158, -1));
 
-        txtSearchError.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        txtSearchError.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         txtSearchError.setForeground(new java.awt.Color(255, 0, 0));
         txtSearchError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSearchError.setText(".");
         tabSearchVehicle.add(txtSearchError, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 434, 53));
+
+        jPanel16.setLayout(new java.awt.BorderLayout());
+
+        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel38.setIcon(new javax.swing.ImageIcon("E:\\Downloads\\blue-background-pinterest-plain-aesthetic-with-stars-scaled.jpg")); // NOI18N
+        jPanel16.add(jLabel38, java.awt.BorderLayout.CENTER);
+
+        tabSearchVehicle.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 890));
 
         dashTabPanel.addTab("SEARCH", tabSearchVehicle);
 
@@ -862,12 +902,12 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel31.setText("Bill Amount (Rs.)");
         tabBookVehicle.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 180, 28));
 
-        txtBookError.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtBookError.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         txtBookError.setForeground(new java.awt.Color(255, 0, 0));
         txtBookError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtBookError.setText(".");
         txtBookError.setToolTipText("");
-        tabBookVehicle.add(txtBookError, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 700, 450, 40));
+        tabBookVehicle.add(txtBookError, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 730, 810, 60));
 
         txtCContact.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         txtCContact.setToolTipText("");
@@ -918,6 +958,15 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(0, 36, 115));
         jLabel35.setText("Advance Payment (Rs.)");
         tabBookVehicle.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 180, 28));
+
+        jPanel17.setLayout(new java.awt.BorderLayout());
+
+        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel39.setIcon(new javax.swing.ImageIcon("E:\\Downloads\\blue-background-pinterest-plain-aesthetic-with-stars-scaled.jpg")); // NOI18N
+        jLabel39.setToolTipText("");
+        jPanel17.add(jLabel39, java.awt.BorderLayout.CENTER);
+
+        tabBookVehicle.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1230, 890));
 
         dashTabPanel.addTab("BOOK", null, tabBookVehicle, "");
 
@@ -1348,6 +1397,35 @@ public class MainMenu extends javax.swing.JFrame {
             txtSearchError.setText("");
         }       
     }
+       
+    private void loadDashboard(){
+        try
+        {
+            Connection con = DB.createConnection();
+            String sql = "SELECT COUNT(LPlate) from vehicles";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                txtNOV.setText(rs.getString(1));                
+            }
+
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(this, "Error Loading dashboard items");
+        }
+        try{
+            Connection con = DB.createConnection();
+            String sql = "SELECT COUNT(Bk_No) from booking";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                txtNOB.setText(rs.getString(1));                
+            }            
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(this, "Error Loading dashboard items");
+        }
+    }
     
     
     /**
@@ -1447,6 +1525,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1457,6 +1538,11 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1495,6 +1581,8 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JTextField txtFinalBill;
     private javax.swing.JTextField txtLplate;
     private javax.swing.JTextField txtModel;
+    private javax.swing.JLabel txtNOB;
+    private javax.swing.JLabel txtNOV;
     private javax.swing.JTextField txtSCategory;
     private javax.swing.JTextField txtSCostPerMonth;
     private javax.swing.JTextField txtSMake;

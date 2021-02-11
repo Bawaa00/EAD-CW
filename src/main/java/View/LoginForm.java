@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import sun.security.util.Password;
 
 /**
  *
@@ -36,6 +37,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        txtForgot = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
         txtPass = new javax.swing.JPasswordField();
@@ -55,6 +57,17 @@ public class LoginForm extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtForgot.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtForgot.setForeground(new java.awt.Color(14, 92, 216));
+        txtForgot.setText("Forgot Password ?");
+        txtForgot.setToolTipText("");
+        txtForgot.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtForgotMouseClicked(evt);
+            }
+        });
+        jPanel1.add(txtForgot, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 120, -1));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 204));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 192, 300, 10));
@@ -92,6 +105,11 @@ public class LoginForm extends javax.swing.JFrame {
         btnReg.setText("SIGNUP");
         btnReg.setToolTipText("");
         btnReg.setActionCommand("REGISTER");
+        btnReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, 100, 50));
 
         btnLog.setBackground(new java.awt.Color(14, 92, 216));
@@ -149,7 +167,6 @@ public class LoginForm extends javax.swing.JFrame {
                   txtUname.setText("");
               }
               else{
-                  JOptionPane.showMessageDialog(null, "Username and Password matched");
                   MainMenu mm = new MainMenu();
                   mm.setVisible(true);
                   this.setVisible(false);
@@ -160,6 +177,16 @@ public class LoginForm extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null,e);
          }
     }//GEN-LAST:event_btnLogActionPerformed
+
+    private void txtForgotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtForgotMouseClicked
+        PasswordRecovery pr = new PasswordRecovery(this,true);
+        pr.setVisible(true);
+    }//GEN-LAST:event_txtForgotMouseClicked
+
+    private void btnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegActionPerformed
+        RegisterForm rf = new RegisterForm(this,true);
+        rf.setVisible(true);
+    }//GEN-LAST:event_btnRegActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,6 +233,7 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel txtForgot;
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUname;
     // End of variables declaration//GEN-END:variables
