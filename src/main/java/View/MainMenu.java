@@ -5,8 +5,12 @@
  */
 package View;
 
+import Controller.SaveBill;
+import Controller.SaveBooking;
 import Controller.SaveVehicle;
 import Controller.UpdateVehicle;
+import Model.Bill;
+import Model.Book;
 import Model.DB;
 import Model.Vehicle;
 import java.awt.Image;
@@ -14,6 +18,8 @@ import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -133,12 +139,12 @@ public class MainMenu extends javax.swing.JFrame {
         cmbBLplate = new javax.swing.JComboBox<>();
         txtBYear = new javax.swing.JTextField();
         txtBMake = new javax.swing.JTextField();
-        txtBModel = new javax.swing.JTextField();
+        txtBCostpMonth = new javax.swing.JTextField();
         txtCName = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtCAddress = new javax.swing.JTextArea();
-        txtCContact = new javax.swing.JTextField();
-        txtBDate = new javax.swing.JTextField();
+        txtFinalBill = new javax.swing.JTextField();
+        txtBNo = new javax.swing.JTextField();
         txtBnom = new javax.swing.JTextField();
         imgCustomer = new javax.swing.JLabel();
         btnBBrowse = new javax.swing.JButton();
@@ -146,11 +152,16 @@ public class MainMenu extends javax.swing.JFrame {
         btnCalculate = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        txtCContact1 = new javax.swing.JTextField();
-        txtCContact2 = new javax.swing.JTextField();
-        txtCContact3 = new javax.swing.JTextField();
+        txtBookError = new javax.swing.JLabel();
+        txtCContact = new javax.swing.JTextField();
+        txtBillAmt = new javax.swing.JTextField();
+        txtAdvPay = new javax.swing.JTextField();
         btnBook = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        txtBModel = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        txtBDate = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1250, 900));
@@ -362,7 +373,7 @@ public class MainMenu extends javax.swing.JFrame {
         tabHome.setLayout(tabHomeLayout);
         tabHomeLayout.setHorizontalGroup(
             tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1039, Short.MAX_VALUE)
+            .addGap(0, 1049, Short.MAX_VALUE)
         );
         tabHomeLayout.setVerticalGroup(
             tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,7 +412,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(tabViewVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
                     .addGroup(tabViewVehicleLayout.createSequentialGroup()
-                        .addGap(0, 895, Short.MAX_VALUE)
+                        .addGap(0, 905, Short.MAX_VALUE)
                         .addComponent(btnView)))
                 .addGap(29, 29, 29))
         );
@@ -528,7 +539,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(btnSave)
                 .addGap(58, 58, 58)
                 .addComponent(btnClear)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 452, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 462, Short.MAX_VALUE)
                 .addComponent(btnBrowse)
                 .addGap(160, 160, 160))
         );
@@ -619,6 +630,7 @@ public class MainMenu extends javax.swing.JFrame {
         txtSModel.setToolTipText("");
 
         cmbSPlateNo.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        cmbSPlateNo.setToolTipText("");
 
         btnSearch.setBackground(new java.awt.Color(0, 106, 188));
         btnSearch.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
@@ -696,7 +708,7 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(btnSearch))
                         .addGap(73, 73, 73)
                         .addComponent(imgSVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSearchVehicleLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBrowseSearch)
@@ -708,8 +720,8 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(tabSearchVehicleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(tabSearchVehicleLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(imgSVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
+                        .addComponent(imgSVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
                         .addComponent(btnBrowseSearch)
                         .addGap(18, 18, 18))
                     .addGroup(tabSearchVehicleLayout.createSequentialGroup()
@@ -781,17 +793,22 @@ public class MainMenu extends javax.swing.JFrame {
         tabBookVehicle.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 180, 28));
 
         jLabel27.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        jLabel27.setText("Booking Date");
+        jLabel27.setText("Booking No");
         tabBookVehicle.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 123, 30));
 
         jLabel28.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        jLabel28.setText("No of Months");
-        tabBookVehicle.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, -1, 30));
+        jLabel28.setText("Cost Per Month");
+        tabBookVehicle.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, 30));
 
         btnBill.setBackground(new java.awt.Color(0, 106, 188));
         btnBill.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         btnBill.setForeground(new java.awt.Color(255, 255, 255));
         btnBill.setText("Get Bill");
+        btnBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBillActionPerformed(evt);
+            }
+        });
         tabBookVehicle.add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 690, -1, -1));
 
         btnBSearch.setBackground(new java.awt.Color(0, 106, 188));
@@ -803,19 +820,22 @@ public class MainMenu extends javax.swing.JFrame {
                 btnBSearchActionPerformed(evt);
             }
         });
-        tabBookVehicle.add(btnBSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
+        tabBookVehicle.add(btnBSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 100, -1, -1));
 
         cmbBLplate.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         tabBookVehicle.add(cmbBLplate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 146, -1));
 
+        txtBYear.setEditable(false);
         txtBYear.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         tabBookVehicle.add(txtBYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 86, -1));
 
+        txtBMake.setEditable(false);
         txtBMake.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         tabBookVehicle.add(txtBMake, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 99, -1));
 
-        txtBModel.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        tabBookVehicle.add(txtBModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(827, 48, 94, -1));
+        txtBCostpMonth.setEditable(false);
+        txtBCostpMonth.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        tabBookVehicle.add(txtBCostpMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 150, 30));
 
         txtCName.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         txtCName.setToolTipText("");
@@ -828,20 +848,22 @@ public class MainMenu extends javax.swing.JFrame {
 
         tabBookVehicle.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, 140));
 
-        txtCContact.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        txtCContact.setToolTipText("");
-        tabBookVehicle.add(txtCContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 640, 150, -1));
+        txtFinalBill.setEditable(false);
+        txtFinalBill.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        txtFinalBill.setToolTipText("");
+        tabBookVehicle.add(txtFinalBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 640, 150, -1));
 
-        txtBDate.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        tabBookVehicle.add(txtBDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 150, 32));
+        txtBNo.setEditable(false);
+        txtBNo.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        tabBookVehicle.add(txtBNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 150, 32));
 
         txtBnom.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        tabBookVehicle.add(txtBnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 86, 32));
+        tabBookVehicle.add(txtBnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 170, 86, 32));
 
         imgCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgCustomer.setToolTipText("");
         imgCustomer.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tabBookVehicle.add(imgCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 301, 254));
+        tabBookVehicle.add(imgCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(601, 280, 350, 300));
 
         btnBBrowse.setBackground(new java.awt.Color(0, 106, 188));
         btnBBrowse.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
@@ -852,17 +874,22 @@ public class MainMenu extends javax.swing.JFrame {
                 btnBBrowseActionPerformed(evt);
             }
         });
-        tabBookVehicle.add(btnBBrowse, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 540, -1, -1));
+        tabBookVehicle.add(btnBBrowse, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 590, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel10.setText("Customer Photo");
         jLabel10.setToolTipText("");
-        tabBookVehicle.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, -1, 32));
+        tabBookVehicle.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 250, -1, 32));
 
         btnCalculate.setBackground(new java.awt.Color(0, 106, 188));
         btnCalculate.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         btnCalculate.setForeground(new java.awt.Color(255, 255, 255));
         btnCalculate.setText("Calculate");
+        btnCalculate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalculateActionPerformed(evt);
+            }
+        });
         tabBookVehicle.add(btnCalculate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 700, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
@@ -873,27 +900,55 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel31.setText("Bill Amount (Rs.)");
         tabBookVehicle.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 180, 28));
 
-        jLabel32.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        jLabel32.setText("Advance Payment (Rs.)");
-        tabBookVehicle.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 180, 28));
+        txtBookError.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtBookError.setForeground(new java.awt.Color(255, 0, 0));
+        txtBookError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtBookError.setText("Error");
+        tabBookVehicle.add(txtBookError, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 700, 450, 40));
 
-        txtCContact1.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        txtCContact1.setToolTipText("");
-        tabBookVehicle.add(txtCContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 150, -1));
+        txtCContact.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        txtCContact.setToolTipText("");
+        tabBookVehicle.add(txtCContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 150, -1));
 
-        txtCContact2.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        txtCContact2.setToolTipText("");
-        tabBookVehicle.add(txtCContact2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 150, -1));
+        txtBillAmt.setEditable(false);
+        txtBillAmt.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        txtBillAmt.setToolTipText("");
+        tabBookVehicle.add(txtBillAmt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 150, -1));
 
-        txtCContact3.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        txtCContact3.setToolTipText("");
-        tabBookVehicle.add(txtCContact3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 150, -1));
+        txtAdvPay.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        txtAdvPay.setToolTipText("");
+        tabBookVehicle.add(txtAdvPay, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 150, -1));
 
         btnBook.setBackground(new java.awt.Color(0, 106, 188));
         btnBook.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         btnBook.setForeground(new java.awt.Color(255, 255, 255));
         btnBook.setText("Book");
+        btnBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookActionPerformed(evt);
+            }
+        });
         tabBookVehicle.add(btnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 690, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel33.setText("No of Months");
+        tabBookVehicle.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 170, -1, 30));
+
+        txtBModel.setEditable(false);
+        txtBModel.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        tabBookVehicle.add(txtBModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(827, 48, 94, -1));
+
+        jLabel34.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel34.setText("Booking Date");
+        tabBookVehicle.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 123, 30));
+
+        txtBDate.setEditable(false);
+        txtBDate.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        tabBookVehicle.add(txtBDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 150, 32));
+
+        jLabel35.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        jLabel35.setText("Advance Payment (Rs.)");
+        tabBookVehicle.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 180, 28));
 
         dashTabPanel.addTab("BOOK", null, tabBookVehicle, "");
 
@@ -937,8 +992,8 @@ public class MainMenu extends javax.swing.JFrame {
     private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
         JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File(System.getProperty("user.home")));
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images","jpg","gif","png");
-        file.addChoosableFileFilter(filter);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");
+        file.setFileFilter(filter);
         int result = file.showSaveDialog(null);
         if(result == JFileChooser.APPROVE_OPTION){
             File selectedFile = file.getSelectedFile();
@@ -1004,7 +1059,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnBSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBSearchActionPerformed
-         try{
+        txtBNo.setText(incrementID(getBookingId())); 
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
+        LocalDateTime now = LocalDateTime.now();  
+        txtBDate.setText(dtf.format(now));  
+        try{
             Connection con = DB.createConnection();
             String sql = ("select * from vehicles where LPlate ='"+cmbSPlateNo.getSelectedItem().toString()+"' ");
             PreparedStatement statement = con.prepareStatement(sql);
@@ -1012,7 +1071,8 @@ public class MainMenu extends javax.swing.JFrame {
             while (rs.next()){
                 txtBYear.setText(rs.getString(2));
                 txtBMake.setText(rs.getString(3));
-                txtBModel.setText(rs.getString(4));  
+                txtBModel.setText(rs.getString(4));
+                txtBCostpMonth.setText(rs.getString(6));  
             }
         }
         catch(Exception ex){
@@ -1029,8 +1089,8 @@ public class MainMenu extends javax.swing.JFrame {
     private void btnBBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBBrowseActionPerformed
         JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File(System.getProperty("user.home")));
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images","jpg","gif","png");
-        file.addChoosableFileFilter(filter);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");
+        file.setFileFilter(filter);
         int result = file.showSaveDialog(null);
         if(result == JFileChooser.APPROVE_OPTION){
             File selectedFile = file.getSelectedFile();
@@ -1081,6 +1141,28 @@ public class MainMenu extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculateActionPerformed
+        validateBooking();
+        if(txtBookError.getText() == "")
+            calculateBill();
+    }//GEN-LAST:event_btnCalculateActionPerformed
+
+    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
+        Book book = new Book(txtBNo.getText(),txtBDate.getText(),Integer.parseInt(txtBnom.getText()),txtCName.getText(),txtCAddress.getText(),Integer.parseInt(txtCContact.getText()),filePath);
+        Bill bill = new Bill((incrementID(getBillID())),txtBDate.getText(),Double.parseDouble(txtBillAmt.getText()),Double.parseDouble(txtAdvPay.getText()),Double.parseDouble(txtFinalBill.getText()));
+        Vehicle vehicle = new Vehicle();
+        vehicle.setID(cmbBLplate.getSelectedItem().toString());
+        SaveBooking sbook = new SaveBooking(book, vehicle);
+        SaveBill sbill = new SaveBill(bill,book);
+        sbook.saveToDatabase();
+        sbill.saveToDatabase();
+    }//GEN-LAST:event_btnBookActionPerformed
+
+    private void btnBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillActionPerformed
+      BillReport br = new BillReport(this, true);
+      br.setVisible(true);
+    }//GEN-LAST:event_btnBillActionPerformed
 
     public ImageIcon ResizeImage(String ImagePath){
         ImageIcon MyImage = new ImageIcon(ImagePath);
@@ -1144,6 +1226,96 @@ public class MainMenu extends javax.swing.JFrame {
         txtSCategory.setText("");
         txtSCostPerMonth.setText("");
     }
+    
+    private void calculateBill()
+    {
+        try{
+        double billAmt = Integer.parseInt(txtBCostpMonth.getText()) * Integer.parseInt(txtBnom.getText());
+        double finalBill = (billAmt) - Double.parseDouble(txtAdvPay.getText());
+        txtBillAmt.setText(String.valueOf(billAmt));
+        txtFinalBill.setText(String.valueOf(finalBill));
+        }
+        catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(this,"Please Enter valid numbers ","Error",JOptionPane.ERROR);
+        }
+    }
+    
+    private String getBookingId(){
+        try{
+                String bid = null;
+                Connection con = DB.createConnection();
+                String sql = "SELECT Bk_No FROM booking ORDER BY Bk_no DESC LIMIT 1;";
+                PreparedStatement statement = con.prepareStatement(sql);  
+                ResultSet rs = statement.executeQuery();
+                while (rs.next()){
+                    bid = rs.getString(1);
+                }
+                return bid;
+            } 
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(this,ex);
+        }
+        return null;
+    }
+    
+    private String getBillID(){
+         try{
+                String billID = null;
+                Connection con = DB.createConnection();
+                String sql = "SELECT Bill_No FROM billing ORDER BY Bill_No DESC LIMIT 1;";
+                PreparedStatement statement = con.prepareStatement(sql);  
+                ResultSet rs = statement.executeQuery();
+                while (rs.next()){
+                    billID = rs.getString(1);
+                }
+                return billID;
+            } 
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(this,ex);
+        }
+        return null;
+    }
+    
+    private String incrementID(String id){
+        StringBuilder sb=new StringBuilder(); 
+            for(int i=0;i<id.length();i++){ 
+                if(i==0){
+                    sb.append((char)(id.charAt(i))); 
+                    continue;
+                }
+                sb.append((char)(id.charAt(i)+1)); 
+            }
+        return sb.toString();
+    }
+    
+    private void validateBooking(){
+        if (txtBYear.getText() == "")
+            txtBookError.setText("Please select a vehicle");
+        else if (!txtBnom.getText().matches("[0-9]+"))
+            txtBookError.setText("Please input number of months properly");
+        else if (Integer.parseInt(txtBnom.getText()) <= 0)
+            txtBookError.setText("Please enter valid no of months");
+        else if (!txtAdvPay.getText().matches("[0-9]+"))
+            txtBookError.setText("Please input numbers only for Advance payment");
+        else if (Integer.parseInt(txtAdvPay.getText()) < 0)
+            txtBookError.setText("Please enter valid value for advance payment");
+        else if (!txtCName.getText().matches("[a-zA-Z_]+"))
+            txtBookError.setText("Please input letters only for name");
+        else if (Integer.parseInt(txtBnom.getText()) <= 0)
+            txtBookError.setText("Please enter valid no of months");
+        else if (txtCAddress.getText() == "")
+            txtBookError.setText("Please fill customer  address");
+        else if (!txtCContact.getText().matches("^\\d{10}$"))
+            txtBookError.setText("Please enter valid contact");
+        else if (imgCustomer.getIcon()==null)
+            txtBookError.setText("Please insert a customer photo");
+        else{
+            txtBookError.setText("");
+        }
+        
+    }
+    
+    
     
     /**
      * @param args the command line arguments
@@ -1235,7 +1407,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1264,18 +1438,21 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel tabSearchVehicle;
     private javax.swing.JPanel tabViewVehicle;
     private javax.swing.JTable tableVehicle;
+    private javax.swing.JTextField txtAdvPay;
+    private javax.swing.JTextField txtBCostpMonth;
     private javax.swing.JTextField txtBDate;
     private javax.swing.JTextField txtBMake;
     private javax.swing.JTextField txtBModel;
+    private javax.swing.JTextField txtBNo;
     private javax.swing.JTextField txtBYear;
+    private javax.swing.JTextField txtBillAmt;
     private javax.swing.JTextField txtBnom;
+    private javax.swing.JLabel txtBookError;
     private javax.swing.JTextArea txtCAddress;
     private javax.swing.JTextField txtCContact;
-    private javax.swing.JTextField txtCContact1;
-    private javax.swing.JTextField txtCContact2;
-    private javax.swing.JTextField txtCContact3;
     private javax.swing.JTextField txtCName;
     private javax.swing.JTextField txtCostpm;
+    private javax.swing.JTextField txtFinalBill;
     private javax.swing.JTextField txtLplate;
     private javax.swing.JTextField txtModel;
     private javax.swing.JTextField txtSCategory;
