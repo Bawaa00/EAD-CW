@@ -10,13 +10,13 @@ package Model;
  * @author Bawantha
  */
 public class Book {
-    String bookID;
-    String bookDate;
-    int bookMonths;
-    String cusName;
-    String cusAddress;
-    int cusContact;
-    String cusImage;
+    public String bookID;
+    public String bookDate;
+    public int bookMonths;
+    public String cusName;
+    public String cusAddress;
+    public int cusContact;
+    public String cusImage;
     
     public Book(String bookID,String bookDate,int bookMonths,String cusName,String cusAddress,int cusContact,String cusImage){
         this.bookID = bookID;
