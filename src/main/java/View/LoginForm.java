@@ -63,9 +63,10 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 302, 300, 10));
 
         txtPass.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        txtPass.setForeground(new java.awt.Color(153, 153, 255));
+        txtPass.setForeground(new java.awt.Color(14, 92, 216));
         txtPass.setText("jPasswordField1");
         txtPass.setBorder(null);
+        txtPass.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtPass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtPassMouseClicked(evt);
@@ -74,7 +75,7 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 300, 30));
 
         txtUname.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtUname.setForeground(new java.awt.Color(153, 153, 255));
+        txtUname.setForeground(new java.awt.Color(14, 92, 216));
         txtUname.setText("Enter Username");
         txtUname.setToolTipText("");
         txtUname.setBorder(null);
@@ -85,7 +86,7 @@ public class LoginForm extends javax.swing.JFrame {
         });
         jPanel1.add(txtUname, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 300, 30));
 
-        btnReg.setBackground(new java.awt.Color(102, 102, 255));
+        btnReg.setBackground(new java.awt.Color(14, 92, 216));
         btnReg.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
         btnReg.setForeground(new java.awt.Color(255, 255, 255));
         btnReg.setText("SIGNUP");
@@ -93,7 +94,7 @@ public class LoginForm extends javax.swing.JFrame {
         btnReg.setActionCommand("REGISTER");
         jPanel1.add(btnReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, 100, 50));
 
-        btnLog.setBackground(new java.awt.Color(102, 102, 255));
+        btnLog.setBackground(new java.awt.Color(14, 92, 216));
         btnLog.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
         btnLog.setForeground(new java.awt.Color(255, 255, 255));
         btnLog.setText("LOGIN");
@@ -106,12 +107,12 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel1.add(btnLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 100, 50));
 
         jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 29, 100));
         jLabel3.setText("Password");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 29, 100));
         jLabel2.setText("Username");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
 
