@@ -135,11 +135,11 @@ public class RegisterForm extends javax.swing.JDialog {
 
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
         if(txtUsername.getText().equals(""))
-            txtError.setText("Enter a username");
+            txtError.setText("Enter an Username");
         else if (txtEmail.getText().equals(""))
-            txtError.setText("Enter a username");
+            txtError.setText("Enter an Email");
         else if (txtPwd.getText().equals(""))
-            txtError.setText("Enter a password");
+            txtError.setText("Enter a Password");
         else if(txtPwd.getText().equals(txtConfirm.getText())){
             try{
                 Connection con = DB.createConnection();

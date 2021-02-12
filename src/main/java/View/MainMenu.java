@@ -390,7 +390,7 @@ public class MainMenu extends javax.swing.JFrame {
         tabHome.setInheritsPopupMenu(true);
         tabHome.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel11.setBackground(new java.awt.Color(28, 128, 239));
+        jPanel11.setBackground(new java.awt.Color(71, 87, 112));
         jPanel11.setToolTipText("");
         jPanel11.setPreferredSize(new java.awt.Dimension(400, 0));
 
@@ -423,7 +423,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         tabHome.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 60, 410, 230));
 
-        jPanel12.setBackground(new java.awt.Color(28, 128, 239));
+        jPanel12.setBackground(new java.awt.Color(71, 87, 112));
         jPanel12.setToolTipText("");
 
         jLabel32.setBackground(new java.awt.Color(0, 48, 131));
@@ -456,11 +456,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         tabHome.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(579, 60, -1, 230));
 
-        jPanel13.setLayout(new java.awt.BorderLayout());
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setIcon(new javax.swing.ImageIcon("E:\\Downloads\\blue-background-pinterest-plain-aesthetic-with-stars-scaled.jpg")); // NOI18N
-        jPanel13.add(jLabel15, java.awt.BorderLayout.CENTER);
+        jLabel15.setIcon(new javax.swing.ImageIcon("E:\\Downloads\\1600x900_Fleet_Web_Header_14_tcm-11-895140.jpg")); // NOI18N
+        jPanel13.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 890));
 
         tabHome.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 890));
 

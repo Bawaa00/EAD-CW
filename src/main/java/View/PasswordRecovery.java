@@ -65,6 +65,8 @@ public class PasswordRecovery extends javax.swing.JDialog {
         jLabel3.setToolTipText("");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
 
+        txtUsername.setEditable(false);
+        txtUsername.setBackground(new java.awt.Color(255, 255, 255));
         txtUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtUsername.setForeground(new java.awt.Color(99, 99, 101));
         txtUsername.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -153,10 +155,8 @@ public class PasswordRecovery extends javax.swing.JDialog {
     }//GEN-LAST:event_txtConfirmFocusGained
 
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
-        if(txtUsername.getText().equals(""))
-        txtError.setText("Enter a username");
-        else if (txtPwd.getText().equals(""))
-        txtError.setText("Enter a password");
+        if (txtPwd.getText().equals(""))
+            txtError.setText("Enter a password");
         else if(txtPwd.getText().equals(txtConfirm.getText())){
             try{
                 Connection con = DB.createConnection();
@@ -182,32 +182,7 @@ public class PasswordRecovery extends javax.swing.JDialog {
     }//GEN-LAST:event_btnRegisterMouseClicked
 
     private void btnRecoverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRecoverMouseClicked
-            checkEmail();
-            /*if(!txtUsername.getText().equals("")){
-               try{
-             Connection con = DB.createConnection();
-             String sql = "select * from login  where username=? and password=? ";
-              PreparedStatement pst = con.prepareStatement(sql);
-              pst.setString(1, txtUsername.getText());
-              pst.setString(2, txtPwd.getText());
-              ResultSet rs = pst.executeQuery();
-              if(!rs.next()){
-                  JOptionPane.showMessageDialog(null, "Username and Password do not match");
-                  txtPwd.setText("");
-                  txtUsername.setText("");
-              }
-              else{
-                  MainMenu mm = new MainMenu();
-                  mm.setVisible(true);
-                  this.setVisible(false);
-              }
-              con.close();
-         }
-         catch(Exception e){
-             JOptionPane.showMessageDialog(null,e);
-         }         
-            }*/
-            
+            checkEmail();     
     }//GEN-LAST:event_btnRecoverMouseClicked
 
     public void hideLabels(){
