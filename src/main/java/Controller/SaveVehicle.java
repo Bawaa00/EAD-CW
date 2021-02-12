@@ -10,6 +10,7 @@ import Model.Vehicle;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -43,6 +44,9 @@ public class SaveVehicle {
             {
                 JOptionPane.showMessageDialog(null,"Could not save data","Error",JOptionPane.ERROR_MESSAGE);
             }
+        }
+        catch(SQLException e){
+           JOptionPane.showMessageDialog(null,"Database Error","Error",JOptionPane.ERROR_MESSAGE); 
         }
         catch(Exception e)
         {

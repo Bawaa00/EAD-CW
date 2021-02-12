@@ -10,6 +10,7 @@ import Model.Book;
 import Model.DB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -42,6 +43,9 @@ public class SaveBill {
             {
                 JOptionPane.showMessageDialog(null,"Could not save bill","Error",JOptionPane.ERROR_MESSAGE);
             }
+        }
+        catch(SQLException e){
+           JOptionPane.showMessageDialog(null,"Database Error","Error",JOptionPane.ERROR_MESSAGE); 
         }
         catch(Exception e)
         {

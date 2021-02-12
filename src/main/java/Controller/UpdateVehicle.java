@@ -9,6 +9,7 @@ import Model.DB;
 import Model.Vehicle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -40,6 +41,9 @@ public class UpdateVehicle {
             {
                 JOptionPane.showMessageDialog(null,"Could not update data","Error",JOptionPane.ERROR_MESSAGE);
             }
+        }
+        catch(SQLException e){
+           JOptionPane.showMessageDialog(null,"Database Error","Error",JOptionPane.ERROR_MESSAGE); 
         }
         catch(Exception e)
         {

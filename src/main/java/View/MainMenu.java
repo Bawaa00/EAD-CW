@@ -184,6 +184,7 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1350, 1000));
 
         header.setBackground(new java.awt.Color(23, 35, 76));
@@ -201,6 +202,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnClose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnClose.setIcon(new javax.swing.ImageIcon("E:\\Downloads\\icons8-cancel-64.png")); // NOI18N
         btnClose.setToolTipText("");
+        btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCloseMouseClicked(evt);
+            }
+        });
         buttonClose.add(btnClose, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout optionIconsLayout = new javax.swing.GroupLayout(optionIcons);
@@ -1200,6 +1206,10 @@ public class MainMenu extends javax.swing.JFrame {
       BillReport br = new BillReport(this, true);
       br.setVisible(true);
     }//GEN-LAST:event_btnBillActionPerformed
+
+    private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnCloseMouseClicked
 
     public ImageIcon ResizeImage(String ImagePath){
         ImageIcon MyImage = new ImageIcon(ImagePath);
